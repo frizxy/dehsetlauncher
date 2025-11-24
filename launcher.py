@@ -15,7 +15,7 @@ import folder_update
 import time
 ROOT = os.path.dirname(os.path.abspath(__file__))
 VERSIONS_DIR = os.path.join(ROOT, "versions")
-VERSIONS_ZIP_URL = "https://github.com/frizxy/dehsetlauncher/releases/download/untagged-eaa7ea41ffdec7c7b36c/versions.zip"
+VERSIONS_ZIP_URL = "https://github.com/frizxy/dehsetlauncher/releases/download/1.0.0/versions.zip"
 VERSIONS_ZIP_PATH = os.path.join(ROOT, "versions.zip")
 VERSION_URL = "https://raw.githubusercontent.com/frizxy/dehsetlauncher/refs/heads/main/update.txt"
 UPDATER_VERSION_URL = "https://raw.githubusercontent.com/frizxy/dehsetlauncher/refs/heads/main/updater.txt"
@@ -27,24 +27,31 @@ UPDATER_VERSİON = "pre-alpha-0.0.1"
 def download_versions():
     print("[UPDATE] versions.zip indiriliyor...")
     r = requests.get(VERSIONS_ZIP_URL, stream=True)
+    r.raise_for_status()
     with open(VERSIONS_ZIP_PATH, "wb") as f:
-        shutil.copyfileobj(r.raw, f)
+        for chunk in r.iter_content(chunk_size=8192):
+            f.write(chunk)
+    print("[UPDATE] versions.zip indirildi.")
 
 def extract_versions():
-    print("[UPDATE] versions klasörü güncelleniyor...")
-    # Eski klasörü sil
-    if os.path.exists(VERSIONS_DIR):
-        shutil.rmtree(VERSIONS_DIR)
-    # Zip aç
-    with zipfile.ZipFile(VERSIONS_ZIP_PATH, 'r') as zip_ref:
-        zip_ref.extractall(ROOT)
-    os.remove(VERSIONS_ZIP_PATH)
-    print("[UPDATE] versions klasörü güncellendi.")
+    try:
+        with zipfile.ZipFile(VERSIONS_ZIP_PATH, 'r') as zip_ref:
+            print("[UPDATE] versions klasörü güncelleniyor...")
+            # Eski klasörü sil
+            if os.path.exists(VERSIONS_DIR):
+                shutil.rmtree(VERSIONS_DIR)
+            zip_ref.extractall(ROOT)
+        print("[UPDATE] versions klasörü güncellendi.")
+    except zipfile.BadZipFile:
+        print("[ERROR] İndirilen versions.zip geçerli bir zip değil!")
+    finally:
+        if os.path.exists(VERSIONS_ZIP_PATH):
+            os.remove(VERSIONS_ZIP_PATH)
+
 
 def update_versions():
     download_versions()
     extract_versions()
-
 
 
 
@@ -62,7 +69,7 @@ def check_for_updates():
         print("[UPDATE] versions klasörü güncel değil, güncelleniyor...")
         update_versions()
         print("[UPDATE] versions klasörü güncellendi.")
-        
+
 def run_updater(latest_version):
     updater_path = os.path.join(os.path.dirname(__file__), "updater.exe")
     
@@ -73,17 +80,24 @@ def run_updater(latest_version):
         with open(updater_path, "wb") as f:
             shutil.copyfileobj(r.raw, f)
         print("[UPDATE] Updater indirildi.")
+        
     if UPDATER_VERSİON != requests.get(UPDATER_VERSION_URL).text.strip():
         print("[UPDATE] Updater güncel değil, güncelleniyor...")
         r = requests.get("https://raw.githubusercontent.com/frizxy/dehsetlauncher/refs/heads/main/updater.exe", stream=True)
         with open(updater_path, "wb") as f:
             shutil.copyfileobj(r.raw, f)
         print("[UPDATE] Updater indirildi.")
+        
     # Updater’i başlat
     subprocess.Popen([updater_path, latest_version, sys.executable])
+
+
+
+threading.Thread(target=check_for_updates(), daemon=True).start()
     
-    
-    
+
+
+threading.Thread(target=run_updater(), daemon=True).start()
     
 def when_opened(text):
    

@@ -7,7 +7,6 @@ TARGET_PATHS = [
     "resourcepacks",
     "versions",
     "launcher.exe",
-    "launch.py",
     "zerotierconnection.py",
     "launcher.py",
     "launcher.qss"
@@ -16,7 +15,7 @@ TARGET_PATHS = [
 
 MANIFEST_URL = "https://raw.githubusercontent.com/frizxy/dehsetlauncher/refs/heads/main/manifest.json"
 LOCAL_MANIFEST = os.path.join(ROOT, "manifest.json")
-
+TEXT_EXTENSIONS = {".py", ".qss", ".txt", ".json"}
 def file_hash(path):
     h = hashlib.sha256()
     with open(path, "rb") as f:
@@ -31,10 +30,21 @@ def load_manifest(path):
     return {}
 
 def download_file(url, local_path):
-    r = requests.get(url, stream=True)
+    ext = os.path.splitext(local_path)[1].lower()
     os.makedirs(os.path.dirname(local_path), exist_ok=True)
-    with open(local_path, "wb") as f:
-        shutil.copyfileobj(r.raw, f)
+    
+    r = requests.get(url, stream=True)
+    r.raise_for_status()
+
+    if ext in TEXT_EXTENSIONS:
+        # text dosyası: UTF-8 ile kaydet
+        content = r.content.decode("utf-8")
+        with open(local_path, "w", encoding="utf-8") as f:
+            f.write(content)
+    else:
+        # binary dosya: doğrudan kaydet
+        with open(local_path, "wb") as f:
+            shutil.copyfileobj(r.raw, f)
 
 def check_files_update():
     # 1. Remote manifest indir
