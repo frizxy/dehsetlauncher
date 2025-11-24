@@ -3,16 +3,11 @@ import os
 import platform
 import sys
 # Minecraft dizini ve sürüm
-
+ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 def resource_path(relative_path):
-    # EXE’de veya normal scriptte aynı şekilde çalışacak
-    if getattr(sys, "frozen", False):
-        base_path = os.path.dirname(sys.executable)
-    else:
-        base_path = os.path.abspath(".")
-    return os.path.join(base_path, relative_path)
+    return os.path.join(ROOT, relative_path)
 
 # Örnek: JSON dosyasına erişim
 json_path = resource_path("versions/fabric-loader-0.17.3-1.21.10/fabric-loader-0.17.3-1.21.10.json")
