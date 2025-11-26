@@ -3,12 +3,12 @@ import sys, os, requests, time, shutil,subprocess
 
 
 
-launcher_path = os.path.join(os.path.dirname(__file__), "launcher.exe")
+launcher_path = os.path.join(os.path.dirname(__file__), "launcher.py")
 
 print(f"[UPDATER] Launcher güncelleniyor...")
 
 # GitHub linki
-launcher_url = "https://github.com/frizxy/dehsetlauncher/releases/download/untagged-eaa7ea41ffdec7c7b36c/launcher.exe"
+launcher_url = "https://raw.githubusercontent.com/frizxy/dehsetlauncher/refs/heads/main/launcher.py"
 
 # Geçici dosya
 tmp_path = launcher_path + ".new"

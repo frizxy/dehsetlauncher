@@ -6,9 +6,7 @@ TARGET_PATHS = [
     "shaderpacks",
     "resourcepacks",
     "versions",
-    "launcher.exe",
     "zerotierconnection.py",
-    "launcher.py",
     "launcher.qss"
     "launcher_assets"
 ]
