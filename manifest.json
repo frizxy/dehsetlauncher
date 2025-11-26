@@ -7,12 +7,11 @@
     "mods/sodium-fabric-0.7.2+mc1.21.10.jar": "bcea7dd66099660f60ffe729e9412ae71d5ad39857c98ff08b6c4259b6a765c4",
     "mods/Zoomify-2.14.6+1.21.9.jar": "88cb79afd36bfb9bb5d555c55fa9fbad21eef893269a7a44c84b38c5b3fddd1a",
     "shaderpacks/ComplementaryShaders_v4.7.2.zip": "33781e830b5ae1ebee2156f7d5011ef1697de5661c3e8b9a118ec78ac1797b57",
-    "shaderpacks/ComplementaryShaders_v4.7.2.zip.txt": "ed991a0c10fccd389ad688e468aa2c78ce6ee62d8dbb4a7d55159a4a98526f61",
+    "shaderpacks/ComplementaryShaders_v4.7.2.zip.txt": "f9b68387eaf8b1573bf6f4bfd52943cb24549932ef427c9d41cf0ccb053dc19f",
     "shaderpacks/Nostalgia_v5.1.zip": "7d7211af2fac6d9b3c7fcbaad7a47f1a612450376d14383088908831c18b6cc8",
     "launch.py": "e3d7af03a761eb93ec16cf390ee5c3eabca4f61590a2732879d731b2f01418a3",
     "zerotierconnection.py": "a2e05fd8fa712245cc19bb8e6e4a2e7095d27c88cc5af751a43343dba1b35cca",
-    "launcher.py": "8cdb4268826522f93029951a97da4aca332d41a486e1afac1ae7a688892acc28",
+    "launcher.py": "c02aed3879e3853f2ae1c4960280ba2cde8dbf3d3e8025fd67934eb1b607bfb2",
     "launcher.qss": "4184561c39998807806926d0db3d2ed5542c4e3269c3d916bc54e600c2e53750",
-    "updater.exe": "fa59ac926cf6853264988f3ca14c8283caa7cedf59fcf694940b8349c66b2871",
-    "folder_update.py": "1ccbcc6e6e4e29ff30ad284f85af137f391b28fb9ae823f55e6c2f0ee208514c"
+    "folder_update.py": "c78f1b203f4dab2a0fe5bd7b023ade0cfbe6830a3b60671897d8d2e40a2cbd35"
 }
