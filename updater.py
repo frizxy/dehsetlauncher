@@ -21,11 +21,11 @@ with open(tmp_path, "wb") as f:
 # Launcher kapandı mı diye bekle (Windows için)
 while True:
     try:
-        os.rename(tmp_path, launcher_path)
+        os.remove(launcher_path)  # önce sil → rename daha temiz çalışır
         break
     except PermissionError:
         time.sleep(1)
-
-print("[UPDATER] Güncelleme tamamlandı. Launcher yeniden başlatılıyor...")
+os.rename(tmp_path, launcher_path)
+print("[UPDATER] Güncelleme tamamlandı.")
 subprocess.Popen([launcher_path])
 sys.exit()
