@@ -8,7 +8,6 @@ TARGET_PATHS = [
     "resourcepacks",
     "launch.py",
     "zerotierconnection.py",
-    "launcher.py",
     "launcher.qss",
     "folder_update.py",
     "launcher_assets"

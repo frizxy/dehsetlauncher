@@ -180,9 +180,9 @@ def run_updater(latest_version):
 
     # Updater’i başlat
 
-    subprocess.Popen([sys.executable, updater_path, latest_version])
+    subprocess.Popen([updater_path, latest_version, sys.executable])
 
-    sys.exit()
+
 
 
 
@@ -198,6 +198,7 @@ def when_opened(text):
 
     threading.Thread(target=check_for_updates, daemon=True).start()
 
+    threading.Thread(target=lambda: run_updater(UPDATER_VERSİON), daemon=True).start()
 
     with open(os.path.join(ROOT,"username.txt"), "r", encoding="utf-8") as f:
 
@@ -338,7 +339,7 @@ button.resize(200, 100)
 button.move(300, 300)
 
 button.clicked.connect(lambda: start_minecraft_here()) 
-button.clicked.connect(lambda: when_closed(textbox.text()))
+
 progress = QProgressBar(window)
 
 progress.setObjectName("progress")
