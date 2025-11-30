@@ -164,7 +164,7 @@ def check_files_update():
             print(f"[UPDATE] {rel_path} güncelleniyor...")
 
 
-            download_file(f"hhttps://raw.githubusercontent.com/frizxy/dehsetlauncher/refs/heads/main/{rel_path}", local_path)
+            download_file(f"https://raw.githubusercontent.com/frizxy/dehsetlauncher/main/{rel_path}", local_path)
 
 
         else:

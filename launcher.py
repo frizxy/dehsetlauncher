@@ -17,6 +17,7 @@ import platform
 import subprocess
 
 import os
+import traceback
 
 import zerotierconnection
 
@@ -36,13 +37,13 @@ VERSIONS_ZIP_URL = "https://github.com/frizxy/dehsetlauncher/releases/download/1
 
 VERSIONS_ZIP_PATH = os.path.join(ROOT, "versions.zip")
 
-VERSION_URL = "https://raw.githubusercontent.com/frizxy/dehsetlauncher/refs/heads/main/update.txt"
+VERSION_URL = "https://raw.githubusercontent.com/frizxy/dehsetlauncher/main/update.txt"
 
-UPDATER_VERSION_URL = "https://raw.githubusercontent.com/frizxy/dehsetlauncher/refs/heads/main/updater.txt"
+UPDATER_VERSION_URL = "https://raw.githubusercontent.com/frizxy/dehsetlauncher/main/updater.txt"
 
 VERSIONS_VERSION = "1.0.0"
 
-VERSIONS_VERSION_URL = "https://raw.githubusercontent.com/frizxy/dehsetlauncher/refs/heads/main/versions_version.txt"
+VERSIONS_VERSION_URL = "https://raw.githubusercontent.com/frizxy/dehsetlauncher/main/versions_version.txt"
 
 CURRENT_VERSION = "alpha-0.0.1"
 
@@ -121,13 +122,15 @@ def check_for_updates():
     server_version = requests.get(VERSION_URL).text.strip()
 
     if server_version != CURRENT_VERSION:
-
-        run_updater()
-
-        sys.exit()
+        print("[UPDATE] Yeni sürüm tespit edildi, updater başlatılıyor...")
+        try:
+            run_updater(server_version)
+        except Exception:
+            traceback.print_exc()
+        # Ensure process exits after updater starts
+        os._exit(0)
 
     else:
-
         print("Launcher güncel.")
 
         
@@ -142,7 +145,9 @@ def check_for_updates():
 
 
 
-def run_updater(latest_version):
+def run_updater(latest_version=None):
+    if latest_version is None:
+        latest_version = UPDATER_VERSİON
 
     updater_path = os.path.join(os.path.dirname(__file__), "updater.py")
 
@@ -154,11 +159,12 @@ def run_updater(latest_version):
 
         print("[UPDATE] Updater yok, indiriliyor...")
 
-        r = requests.get("https://raw.githubusercontent.com/frizxy/dehsetlauncher/refs/heads/main/updater.py", stream=True)
+        r = requests.get("https://raw.githubusercontent.com/frizxy/dehsetlauncher/main/updater.py", stream=True, timeout=30)
 
         with open(updater_path, "wb") as f:
-
-            shutil.copyfileobj(r.raw, f)
+            for chunk in r.iter_content(chunk_size=8192):
+                if chunk:
+                    f.write(chunk)
 
         print("[UPDATE] Updater indirildi.")
 
@@ -168,19 +174,22 @@ def run_updater(latest_version):
 
         print("[UPDATE] Updater güncel değil, güncelleniyor...")
 
-        r = requests.get("https://raw.githubusercontent.com/frizxy/dehsetlauncher/refs/heads/main/updater.py", stream=True)
+        r = requests.get("https://raw.githubusercontent.com/frizxy/dehsetlauncher/main/updater.py", stream=True, timeout=30)
 
         with open(updater_path, "wb") as f:
-
-            shutil.copyfileobj(r.raw, f)
+            for chunk in r.iter_content(chunk_size=8192):
+                if chunk:
+                    f.write(chunk)
 
         print("[UPDATE] Updater indirildi.")
 
         
 
     # Updater’i başlat
-
-    subprocess.Popen([updater_path, latest_version, sys.executable])
+    try:
+        subprocess.Popen([sys.executable, updater_path, latest_version])
+    except Exception:
+        traceback.print_exc()
 
 
 
