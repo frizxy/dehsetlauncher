@@ -14,10 +14,9 @@ TARGET_PATHS = [
     "mods",
     "shaderpacks",
     "resourcepacks",
-    "versions",
     "zerotierconnection.py",
     "launcher.qss",
-    "launcher_assets",
+    "launcher_assets"
 ]
 
 
