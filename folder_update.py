@@ -6,7 +6,7 @@ import json
 import requests
 import shutil
 
-.
+
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -115,3 +115,4 @@ def check_files_update():
 
 
     print("[UPDATE] Tüm dosyalar kontrol edildi.")
+
