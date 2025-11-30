@@ -197,9 +197,10 @@ def run_updater(latest_version):
 
 def when_opened(text):
 
-    threading.Thread(target=check_for_updates, daemon=True).start()
-
-    threading.Thread(target=lambda: run_updater(UPDATER_VERSİON), daemon=True).start()
+    # Do not start update checks automatically on every startup —
+    # this prevents the launcher/updater restart loop. If you want
+    # to check for updates, run `folder_update.check_files_update()`
+    # or call `run_updater()` manually.
 
     with open(os.path.join(ROOT,"username.txt"), "r", encoding="utf-8") as f:
 
