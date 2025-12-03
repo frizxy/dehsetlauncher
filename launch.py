@@ -136,7 +136,7 @@ def get_minecraft_args():
 
         "--assetsDir", os.path.join(minecraft_dir, "assets"),
 
-        "--assetIndex", "5",
+        "--assetIndex", "27",
 
         "--uuid", uuid,
 
