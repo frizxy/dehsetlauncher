@@ -1,0 +1,114 @@
+#startButton{
+
+
+    background-color: #4CAF50; 
+
+
+    border-radius: 12px;
+
+
+    text-decoration: none;
+
+
+}
+
+
+#usernameBox{
+
+
+    border: 2px solid #4CAF50;
+
+
+    border-radius: 8px;
+
+
+}
+
+
+#startButton:hover{
+
+
+    background-color: #45a049;
+
+
+    
+
+
+}
+
+
+#progress{
+
+
+    color: white;
+
+
+    border: 2px solid #4CAF50;
+
+
+    border-radius: 10px;
+
+
+    background-color: white;
+
+
+}
+
+
+#progress::chunk {
+
+
+    background-color: #4CAF50;
+
+
+    width: 20px;
+
+
+    height: 20px;
+
+
+}
+
+
+#startButtonDeactive{
+
+
+    background-color: red; 
+
+
+    border-radius: 12px;
+
+
+    text-decoration: none;
+
+
+  
+
+
+}
+QWidget{
+         background: qlineargradient(
+        x1:1, y1:1, x2:0, y2:0, 
+        stop:0 rgb(88,88,88), 
+        stop:1 rgb(0,0,0)
+    );
+}
+        QSlider::groove:horizontal {
+                height: 10px;
+                background: lightgray;
+                border-radius: 5px;
+            }
+            QSlider::handle:horizontal {
+                background: black;       /* slider knob rengi */
+                width: 20px;
+                border-radius: 10px;
+            }
+            QSlider::sub-page:horizontal {
+                background: gray;     /* dolan / seçilen kısmın rengi */
+                border-radius: 5px;
+            }
+            QSlider{
+                background: transparent;
+             
+              
+            }
