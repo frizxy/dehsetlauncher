@@ -6,3 +6,9 @@ QFrame{
     );
     border-radius: 50px;
 }
+#update_label {
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    background: transparent;
+}
