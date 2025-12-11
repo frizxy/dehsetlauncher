@@ -35,7 +35,7 @@ update_result = None   # ✅ THREAD SONUCUNU BURAYA KOYACAĞIZ
 
 
 def finish_update():
-    subprocess.run([sys.executable, "launcher.py"])
+    subprocess.Popen([sys.executable, "launcher.py"])
     app.quit()
 
 def process_queue():
