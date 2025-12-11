@@ -35,7 +35,13 @@ update_result = None   # ✅ THREAD SONUCUNU BURAYA KOYACAĞIZ
 
 
 def finish_update():
-    subprocess.Popen([sys.executable, "launcher.py"])
+    si = subprocess.STARTUPINFO()
+    si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    si.wShowWindow = 1   # 1 = Normal window (not minimized)
+    subprocess.Popen(
+        [sys.executable, "launcher.py"],
+        startupinfo=si
+    )
     app.quit()
 
 def process_queue():
