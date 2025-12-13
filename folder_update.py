@@ -19,7 +19,8 @@ TARGET_PATHS = [
     "launcher.py",
     "firstpage.qss",
     "firstpage.py",
-    "updates_checker.py"
+    "launch.py",
+    "launcher_assets"
 ]
 
 
