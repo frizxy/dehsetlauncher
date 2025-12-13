@@ -118,4 +118,4 @@ print(" ".join(cmd))
 def start_game():
     set_username()
     subprocess.run(cmd)
-    input("\nOyundan çıktın, devam etmek için Enter'a bas...")
+
