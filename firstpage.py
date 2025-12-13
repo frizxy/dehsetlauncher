@@ -35,12 +35,9 @@ update_result = None   # ✅ THREAD SONUCUNU BURAYA KOYACAĞIZ
 
 
 def finish_update():
-    si = subprocess.STARTUPINFO()
-    si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-    si.wShowWindow = 1   # 1 = Normal window (not minimized)
     subprocess.Popen(
         [sys.executable, "launcher.py"],
-        startupinfo=si
+        creationflags=subprocess.CREATE_NEW_PROCESS_GROUP
     )
     app.quit()
 
