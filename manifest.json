@@ -6,11 +6,9 @@
     "shaderpacks/Sildur's Enhanced Default v1.18 Fancy.zip": "543b0c716f2bb99b65d77200c8a50721f3d3a083d7dede8023377578fbf95c6a",
     "zerotierconnection.py": "2a77b8c32613b64e4855b52eb347703b51f4db5189518e885d651a826f1be5fe",
     "launcher.qss": "cfbe906ce1c918ab146e6240f0f6998c25f89fa0e56e244496799f7e330c3406",
-    "launcher.py": "422bf1b1b9242e363e25ea089ddff3a6ecda0dd371744a535dde0def27702fe4",
+    "launcher.py": "4fd53f3dfde397a1ef7d4fc00491d85bcc1cd760ddfc57d3d7f673d151946840",
     "firstpage.qss": "c7067ec562823d9e27516db5ed5fe89ce68b865d36b4f287c8ba12b7ac19bd54",
     "firstpage.py": "d34298276b5e0f603a494f3ca67ae494febfbb17cbc1708c663467d849911d9e",
-    "updates_checker.py": "6f1b39f9936ae6f2e5a37e94d3302b456a3e2496854e2539b383af4bafd6e5b35",
-    "launch.py": "13b46e00f404ba9081b5e031876055abaad6404e625253e04e5bae757e7cb6f1",
-    "launcher_assets/icon.png": "ae407b8e102e72a08bc59ca27db7ef5cad0acc4b156ad11792484b4d47d26534"
-
+    "updates_checker.py": "6f1b39f9936ae6f2e5a37e94d3302b456a3e2496854e2539b383af4bafd6e5b3",
+    "launch.py": "13b46e00f404ba9081b5e031876055abaad6404e625253e04e5bae757e7cb6f1"
 }
