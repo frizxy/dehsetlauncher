@@ -28,7 +28,7 @@ def update_updater(queue):
         r.raise_for_status()
         with open(updater_path, "wb") as f:
             for chunk in r.iter_content(chunk_size=8192):
-                if chunk:.
+                if chunk:
                     f.write(chunk)
 
         queue.put("Updater indirildi.")
@@ -58,4 +58,3 @@ def check_for_updates(queue):
     msg2 = update_updater(queue)
 
     queue.put("✅ Güncellemeler tamamlandı.")
-
