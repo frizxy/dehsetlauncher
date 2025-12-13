@@ -1,4 +1,5 @@
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton,QLineEdit,QMessageBox,QLabel,QProgressBar,QSlider
+from PyQt6.QtGui import QIcon
 from PyQt6.QtCore import QTimer,Qt
 import threading
 import sys
@@ -140,7 +141,7 @@ window.setWindowTitle("DEHŞET LAUNCHER")
 window.setFixedSize(800, 500)
 
 
-
+window.setWindowIcon(QIcon("launcher_assets/icon.png"))
 textbox = QLineEdit(window)
 
 textbox.setObjectName("usernameBox")
