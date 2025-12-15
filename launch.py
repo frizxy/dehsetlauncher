@@ -118,4 +118,5 @@ print(" ".join(cmd))
 def start_game():
     set_username()
     subprocess.run(cmd)
+    input("durdu")
 
