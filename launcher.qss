@@ -89,8 +89,8 @@
 QWidget{
          background: qlineargradient(
         x1:1, y1:1, x2:0, y2:0, 
-        stop:0 rgb(88,88,88), 
-        stop:1 rgb(0,0,0)
+        stop:0 rgb(0,0,255), 
+        stop:1 rgb(0,255,0)
     );
 }
         QSlider::groove:horizontal {
@@ -111,4 +111,5 @@ QWidget{
                 background: transparent;
              
               
+
             }
