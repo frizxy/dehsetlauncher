@@ -135,7 +135,7 @@ window = QWidget()
 
 window.setWindowTitle("DEHŞET LAUNCHER")
 
-
+window.setWindowIcon(QIcon("launcher_assets\icon.ico")
 
 window.setFixedSize(800, 500)
 
@@ -241,4 +241,5 @@ window.show()
 zerotiercontrol(button)
 
 sys.exit(app.exec())
+
 
