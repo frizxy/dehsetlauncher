@@ -1,5 +1,6 @@
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton,QLineEdit,QMessageBox,QLabel,QProgressBar,QSlider
 from PyQt6.QtCore import QTimer,Qt
+from PyQt6.QtGui import QIcon
 import threading
 import sys
 import launch
@@ -132,8 +133,10 @@ app.setStyleSheet(style)
 
 
 window = QWidget()
-
+window.setWindowIcon(QIcon(os.path.join(ROOT,"launcher_assets/icon.ico")))
 window.setWindowTitle("DEHŞET LAUNCHER")
+
+
 
 window.setFixedSize(800, 500)
 
@@ -239,7 +242,4 @@ window.show()
 zerotiercontrol(button)
 
 sys.exit(app.exec())
-
-
-
 
