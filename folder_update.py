@@ -20,7 +20,8 @@ TARGET_PATHS = [
     "firstpage.qss",
     "firstpage.py",
     "launch.py",
-    "launcher_assets"
+    "launcher_assets",
+    "settings.py"
 ]
 
 

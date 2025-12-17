@@ -110,7 +110,8 @@ cmd = [
     "--uuid", "0",
     "--accessToken", "0",
     "--userType", "offline",
-    "--versionType", "release"
+    "--versionType", "release",
+    "--quickPlayMultiplayer", "172.23.17.183:25565"
 ]
 
 print("✅ JAVA KOMUTU:")
@@ -118,5 +119,4 @@ print(" ".join(cmd))
 def start_game():
     set_username()
     subprocess.run(cmd)
-    input("durdu")
 

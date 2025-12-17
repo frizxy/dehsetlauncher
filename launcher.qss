@@ -89,7 +89,7 @@
 QWidget{
          background: qlineargradient(
         x1:1, y1:1, x2:0, y2:0, 
-        stop:0 rgb(81,81,81), 
+        stop:0 rgb(88,88,88), 
         stop:1 rgb(0,0,0)
     );
 }
@@ -111,6 +111,10 @@ QWidget{
                 background: transparent;
              
               
-
             }
 
+#settingButton{
+
+    background-color: #008CBA;
+
+}
