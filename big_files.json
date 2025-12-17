@@ -3,7 +3,7 @@
         "url": "https://cdn.modrinth.com/data/1j76DVHU/versions/kQKZGGwM/TACZ-Refabricated-1.20.1-0.2.0-forge1.1.7.jar"
      
     },
-    "mods/iris-1.7.6 mc1.20.1.jar": {
+    "mods/iris-1.7.6+mc1.20.1.jar": {
         "url": "https://cdn.modrinth.com/data/YL57xq9U/versions/s5eFLITc/iris-1.7.6%2Bmc1.20.1.jar"
       
     },
@@ -19,7 +19,7 @@
         "url": "https://cdn.modrinth.com/data/uXXizFIs/versions/unerR5MN/ferritecore-6.0.1-fabric.jar"
       
     },
-    "mods/sodium-fabric-0.5.13 mc1.20.1.jar": {
+    "mods/sodium-fabric-0.5.13+mc1.20.1.jar": {
         "url": "https://cdn.modrinth.com/data/AANobbMI/versions/OihdIimA/sodium-fabric-0.5.13%2Bmc1.20.1.jar"
       
     }
