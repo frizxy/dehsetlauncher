@@ -27,12 +27,12 @@ def zerotier_ping_thread():
 def update_label(button):
     if not zt_bagli:
         button.setText("ZeroTier'a Bağlı Değil!")
-        button.setEnabled(False)
+        button.setEnabled(True)
     elif server_acik:
         button.setText("Sunucu Açık!")
         button.setEnabled(True)
     else:
         button.setText("Sunucu Kapalı!")
-        button.setEnabled(False)
+        button.setEnabled(True)
     
    
