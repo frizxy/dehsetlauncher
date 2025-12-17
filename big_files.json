@@ -1,6 +1,29 @@
 {
-    "mods/TACZ-Refabricated-1.20.1-0.2.0-forge1.1.7.jar": {
+    "mods/tacz.jar": {
         "url": "https://cdn.modrinth.com/data/1j76DVHU/versions/kQKZGGwM/TACZ-Refabricated-1.20.1-0.2.0-forge1.1.7.jar"
      
+    },
+    "mods/iris.jar": {
+        "url": "https://cdn.modrinth.com/data/YL57xq9U/versions/s5eFLITc/iris-1.7.6%2Bmc1.20.1.jar"
+      
+    },
+    "mods/entityculling.jar": {
+        "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/Pzx7Sq6t/entityculling-fabric-1.9.4-mc1.20.1.jar"
+      
+    },
+    "mods/modmenu.jar": {
+        "url": "https://cdn.modrinth.com/data/mOgUt4GM/versions/lEkperf6/modmenu-7.2.2.jar"
+      
+    },
+    "mods/ferritecore.jar": {
+        "url": "https://cdn.modrinth.com/data/uXXizFIs/versions/unerR5MN/ferritecore-6.0.1-fabric.jar"
+      
+    },
+    "mods/sodium.jar": {
+        "url": "https://cdn.modrinth.com/data/AANobbMI/versions/OihdIimA/sodium-fabric-0.5.13%2Bmc1.20.1.jar"
+      
     }
+
+ 
+ 
 }
