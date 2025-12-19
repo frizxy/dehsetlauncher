@@ -16,7 +16,7 @@ def zerotier_ping_thread():
 
         # Server ping
         try:
-            s = socket.create_connection(("26.130.85.123", 25565), 0.7)
+            s = socket.create_connection(("172.23.34.55", 25565), 0.7)
             s.close()
             server_acik = True
         except:
@@ -25,8 +25,10 @@ def zerotier_ping_thread():
         time.sleep(1)
 
 def update_label(button):
-   
-    if server_acik:
+    if not zt_bagli:
+        button.setText("ZeroTier Bağlı")
+        button.setEnabled(True)
+    elif server_acik:
         button.setText("Sunucu Açık!")
         button.setEnabled(True)
     else:
