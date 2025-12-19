@@ -7,7 +7,7 @@ import requests
 import json
 ROOT = os.path.dirname(os.path.abspath(__file__))
 MANIFEST_URL ="https://raw.githubusercontent.com/frizxy/dehsetlauncher/main/mod_manifest.json"
-MODS_URL = "https://download1507.mediafire.com/nfr8qke0hrhgcJ5Cq8IK_niEmmVMjH3ycELPQp5ZTJOwr7JK5o2MhBJMx3uwNNagC2wVRBh3H9XSdbyovz9D_Lg0_2l4pzBOs7A3hkJttjMhP-kcQ3ANw1QuCZNz50gC2ArzFRuqYP1r_VSpK6ezna2tOLM45_J7-Jcm33sIO9QevA/2gg3j6ka5lvoaaz/Desktop.zip"
+MODS_URL = "https://github.com/frizxy/dehsetlaunchermods/releases/download/1/Desktop.zip"
 LOCAL_MANIFEST_PATH = os.path.join(ROOT, "mod_manifest.json")
 
 def file_hash(path):
