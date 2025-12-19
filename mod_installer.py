@@ -8,6 +8,8 @@ import json
 ROOT = os.path.dirname(os.path.abspath(__file__))
 MANIFEST_URL ="https://raw.githubusercontent.com/frizxy/dehsetlauncher/main/mod_manifest.json"
 MODS_URL = "https://download1507.mediafire.com/nfr8qke0hrhgcJ5Cq8IK_niEmmVMjH3ycELPQp5ZTJOwr7JK5o2MhBJMx3uwNNagC2wVRBh3H9XSdbyovz9D_Lg0_2l4pzBOs7A3hkJttjMhP-kcQ3ANw1QuCZNz50gC2ArzFRuqYP1r_VSpK6ezna2tOLM45_J7-Jcm33sIO9QevA/2gg3j6ka5lvoaaz/Desktop.zip"
+LOCAL_MANIFEST_PATH = os.path.join(ROOT, "mod_manifest.json")
+
 def file_hash(path):
     h = hashlib.sha256()
     with open(path, "rb") as f:
@@ -39,7 +41,7 @@ def check_mods_update(queue):
         return
 
     # 2. Local manifest yükle
-    LOCAL_MANIFEST = load_manifest(os.path.join(ROOT, "/mod_manifest.json"))
+    local_manifest = load_manifest(LOCAL_MANIFEST_PATH)
 
     # 3. Değişen dosyaları kontrol et
     for rel_path, remote_hash in remote_manifest.items():
@@ -48,14 +50,14 @@ def check_mods_update(queue):
             queue.put(f"[UPDATE] modlar güncelleniyor...")
            
             try:
-                indir_ac_sil(MODS_URL,os.path.join(ROOT,"/mods"))
+                indir_ac_sil(MODS_URL,os.path.join(ROOT,"mods"))
             except Exception:
                 queue.put(f"[ERROR] {rel_path} indirilemedi.")
         else:
               queue.put(f"[OK] {rel_path} güncel.")
 
     # 4. Local manifesti güncelle
-    with open(LOCAL_MANIFEST, "w", encoding="utf-8") as f:
+    with open(LOCAL_MANIFEST_PATH, "w", encoding="utf-8") as f:
         json.dump(remote_manifest, f, indent=4)
 
     queue.put("[UPDATE] Tüm modlar kontrol edildi.")
