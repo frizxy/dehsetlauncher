@@ -13,5 +13,6 @@
     "launcher_assets/icon.ico": "fd40a3cccd63c9168cf2fcdfab8c9703846dd2fbfaa6d820e90ed199b75d78cb",
     "launcher_assets/icon.png": "ae407b8e102e72a08bc59ca27db7ef5cad0acc4b156ad11792484b4d47d26534",
     "settings.py": "4bfc9c03fff077d39a68d759daeb9e7e27701458a5779c7ef81060550bce0742",
-    "mod_installer.py": "3064ea5f01b3bd3364ea87fa3cd61a581377a76a09d75e842d62b42e76374b84"
+    "mod_installer.py": "3064ea5f01b3bd3364ea87fa3cd61a581377a76a09d75e842d62b42e76374b84",
+    "updates_checker.py": "1b4f62a2c6f7e5d9fb67b39175213eb8e9d21bccf89f03741c6155f314925413"
 }
