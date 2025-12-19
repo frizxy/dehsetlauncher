@@ -11,7 +11,6 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 BIG_FILES_URL = "https://raw.githubusercontent.com/frizxy/dehsetlauncher/main/big_files.json"
 
 TARGET_PATHS = [
-    "mods",
     "shaderpacks",
     "resourcepacks",
     "zerotierconnection.py",
