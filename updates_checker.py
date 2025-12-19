@@ -9,7 +9,7 @@ from PyQt6.QtWidgets import QMessageBox,QLabel
 from PyQt6.QtCore import QTimer
 import threading
 import hashlib
-
+import mod_installer
 
 updater_path = os.path.join(os.path.dirname(__file__), "folder_update.py")
 UPDATER_URL = "https://raw.githubusercontent.com/frizxy/dehsetlauncher/main/folder_update.py"
@@ -79,5 +79,6 @@ def check_for_updates(queue):
 
     msg1 = folder_update.check_files_update(queue)
     msg2 = update_updater(queue)
+    msg3 = mod_installer.check_mods_update(queue)
 
     queue.put("✅ Güncellemeler tamamlandı.")

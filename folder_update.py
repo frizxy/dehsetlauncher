@@ -21,7 +21,8 @@ TARGET_PATHS = [
     "firstpage.py",
     "launch.py",
     "launcher_assets",
-    "settings.py"
+    "settings.py",
+    "mod_installer.py"
 ]
 
 
@@ -70,42 +71,8 @@ def download_file(url, local_path):
             if chunk:
                 f.write(chunk)
 
-def check_big_files(queue):
-    queue.put("Büyük dosyalar kontrol ediliyor...")
-
-    try:
-        r = requests.get(BIG_FILES_URL, timeout=30)
-        r.raise_for_status()
-        big_files = r.json()
-    except Exception as e:
-        queue.put(f"[ERROR] Büyük dosya listesi alınamadı: {e}")
-        return
-
-    for rel_path, info in big_files.items():
-        local_path = os.path.join(ROOT, rel_path)
-        url = info["url"]
-        expected_size = info.get("size")
-
-        need_download = False
-
-        if not os.path.exists(local_path):
-            need_download = True
-        elif expected_size and os.path.getsize(local_path) != expected_size:
-            need_download = True
-
-        if need_download:
-            queue.put(f"[DOWNLOAD] {rel_path} indiriliyor...")
-            try:
-                download_file(url, local_path)   # 🔥 AYNI FONKSİYON
-                queue.put(f"[OK] {rel_path} indirildi.")
-            except Exception:
-                queue.put(f"[ERROR] {rel_path} indirilemedi.")
-        else:
-            queue.put(f"[OK] {rel_path} mevcut.")
-            
-            
 def check_files_update(queue):
-    check_big_files(queue)
+  
 
     queue.put("Dosyalar kontrol ediliyor...")
     
