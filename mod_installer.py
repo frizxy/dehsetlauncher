@@ -7,7 +7,7 @@ import requests
 import json
 ROOT = os.path.dirname(os.path.abspath(__file__))
 MANIFEST_URL ="https://raw.githubusercontent.com/frizxy/dehsetlauncher/main/mod_manifest.json"
-MODS_URL = "https://github.com/frizxy/dehsetlaunchermods/releases/download/1/Desktop.zip"
+MODS_URL = "https://github.com/frizxy/dehsetlaunchermods/releases/download/1.2/mods.zip"
 LOCAL_MANIFEST_PATH = os.path.join(ROOT, "mod_manifest.json")
 
 def file_hash(path):
@@ -27,11 +27,8 @@ def load_manifest(path):
 
 
 def check_mods_update(queue):
-  
-
     queue.put("Modlar kontrol ediliyor...")
-    
-    # 1. Remote manifest indir
+
     try:
         r = requests.get(MANIFEST_URL, timeout=30)
         r.raise_for_status()
@@ -40,27 +37,30 @@ def check_mods_update(queue):
         queue.put(f"[ERROR] Manifest indirilemedi: {e}")
         return
 
-    # 2. Local manifest yükle
     local_manifest = load_manifest(LOCAL_MANIFEST_PATH)
 
-    # 3. Değişen dosyaları kontrol et
+    update_needed = False
+
     for rel_path, remote_hash in remote_manifest.items():
         local_path = os.path.join(ROOT, rel_path)
         if not os.path.exists(local_path) or file_hash(local_path) != remote_hash:
-            queue.put(f"[UPDATE] modlar güncelleniyor...")
-           
-            try:
-                indir_ac_sil(MODS_URL,os.path.join(ROOT,"mods"))
-            except Exception:
-                queue.put(f"[ERROR] {rel_path} indirilemedi.")
-        else:
-              queue.put(f"[OK] {rel_path} güncel.")
+            update_needed = True
+            break
 
-    # 4. Local manifesti güncelle
+    if update_needed:
+        queue.put("[UPDATE] Mod paketi indiriliyor...")
+        try:
+            indir_ac_sil(MODS_URL, os.path.join(ROOT, "mods"))
+        except Exception as e:
+            queue.put(f"[ERROR] Mod paketi indirilemedi: {e}")
+            return
+    else:
+        queue.put("[OK] Tüm modlar güncel.")
+
     with open(LOCAL_MANIFEST_PATH, "w", encoding="utf-8") as f:
         json.dump(remote_manifest, f, indent=4)
 
-    queue.put("[UPDATE] Tüm modlar kontrol edildi.")
+    queue.put("[DONE] Mod kontrolü tamamlandı.")
 
    
 
