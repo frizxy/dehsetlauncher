@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QApplication, QWidget, QPushButton,QLineEdit,QMessageBox,QLabel,QProgressBar,QSlider
+from PyQt6.QtWidgets import QApplication, QWidget, QPushButton,QLineEdit,QMessageBox,QLabel,QProgressBar,QSlider,QComboBox
 from PyQt6.QtCore import QTimer,Qt
 from PyQt6.QtGui import QIcon
 import threading
@@ -180,6 +180,7 @@ setting_button = QPushButton("Ayarlar", window)
 setting_button.setObjectName("settingButton")
 setting_button.resize(100, 40)
 setting_button.clicked.connect(lambda: settings.window.show())
+
 
 
 

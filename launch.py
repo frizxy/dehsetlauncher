@@ -114,9 +114,13 @@ cmd = [
     "--quickPlayMultiplayer", "172.23.17.183:25565"
 ]
 
-print("✅ JAVA KOMUTU:")
-print(" ".join(cmd))
+
 def start_game():
     set_username()
-    subprocess.run(cmd)
+    subprocess.run(
+    cmd,
+    stdout=subprocess.DEVNULL,
+    stderr=subprocess.DEVNULL,
+    creationflags=subprocess.CREATE_NO_WINDOW
+)
 

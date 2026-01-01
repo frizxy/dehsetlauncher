@@ -21,7 +21,9 @@ TARGET_PATHS = [
     "launch.py",
     "launcher_assets",
     "settings.py",
-    "mod_installer.py"
+    "mod_installer.py",
+    "updates_checker.py",
+    "optimization_sets"
 ]
 
 
