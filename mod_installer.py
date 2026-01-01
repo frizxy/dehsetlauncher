@@ -7,7 +7,7 @@ import requests
 import json
 ROOT = os.path.dirname(os.path.abspath(__file__))
 MANIFEST_URL ="https://raw.githubusercontent.com/frizxy/dehsetlauncher/main/mod_manifest.json"
-MODS_URL = "https://github.com/frizxy/dehsetlaunchermods/releases/download/1.2/mods.zip"
+MODS_URL = "https://github.com/frizxy/dehsetlaunchermods/releases/download/1.3/client.zip"
 LOCAL_MANIFEST_PATH = os.path.join(ROOT, "mod_manifest.json")
 
 def file_hash(path):
